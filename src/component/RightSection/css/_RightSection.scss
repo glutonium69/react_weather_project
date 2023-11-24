@@ -1,0 +1,302 @@
+
+@import "../../../utilities/variables";
+
+
+.right-section{
+    flex-grow: 1;
+    background-color: $right-side-color;
+    padding: $left-right--section-padding;
+    display: flex;
+    flex-direction: column;
+    gap: $right-section-gap;
+}
+
+nav{
+    background: #2B2B2B;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+    /* background-color: aquamarine; */
+}
+
+nav,
+nav > div{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+.nav-left{
+
+    span{
+        position: relative;
+        font-weight: 600;
+    }
+
+    span:first-of-type{
+        color: $text-secondary;
+    }
+    
+    span:last-of-type{
+
+        &::before{
+            content: "";
+            position: absolute;
+            height: 10%;
+            width: 100%;
+            background: $text-secondary;
+            left: 0;
+            bottom: 0;
+            translate: 0 100%;
+        }
+    }
+}
+
+
+.nav-right{
+
+    span{
+        display: grid;
+        place-items: center;
+        font-size: 0.8em;
+        font-weight: 700;
+        border-radius: 50%;
+        width: 25px;
+        aspect-ratio: 1;
+    }
+
+    span:first-of-type{
+        background-color: black;
+        color: white;
+    }
+
+    span:last-of-type{
+        background-color: white;
+        color: black;
+    }
+}
+
+
+.pfp{
+    width: 30px;
+    aspect-ratio: 1;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+    }
+}
+
+.weekly{
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+.weekly-card{
+    width: calc(100% / 7);
+    aspect-ratio: 1/1.3;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    background-color: $card-color;
+    padding: 1rem;
+
+    .icon{
+        width : 35px;
+    }
+    
+    img{
+        width: 100%;
+    }
+    
+    .temp-min{
+        color: $text-secondary;
+    }
+}
+
+
+
+
+
+
+.daily{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    flex-grow: 1;
+}
+
+
+.daily-title{
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+
+.daily-card-holder{
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    background-color: transparent !important;
+}
+
+
+.daily-card{
+    background-color: $card-color;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+
+    .title{
+        color: $text-secondary;
+    }
+
+    .icon-comment{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        
+        .icon{
+            aspect-ratio: 1;
+        }
+    }
+}
+
+.big-text{
+    font-size: 35px;    
+}
+
+.small-text{
+    font-size: 16px;
+}
+
+
+
+
+.uv-index{
+
+    $uv-index: 5;
+    $gauge-radius: 45%;
+
+    .gauge-wrapper{
+        aspect-ratio: 2;
+        width: calc(2 * $gauge-radius);
+        margin-inline: auto;
+        position: relative;
+        display: grid;
+
+
+        > span{
+
+            $offset: 8px;
+
+            height: fit-content;
+            position: absolute;
+            grid-area: 1/1;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: $text-secondary;
+            font-size: 14px;
+
+
+            @for $i from 1 through 4{
+                &:nth-of-type(#{$i}){
+
+                    translate: 
+                        calc(cos(180deg / 15 * 3 * $i) * (-137.31px / 2 - $offset))
+                        calc(sin(180deg / 15 * 3 * $i) * (-137.31px / 2 - $offset))
+                    ;
+                }
+            }
+        }
+    }
+
+    .gauge-body{
+        background-color: rgba(211, 211, 211, 0.445);
+        position: relative;
+        height: 100%;
+        border-top-left-radius: 100% 200%;
+        border-top-right-radius: 100% 200%;
+        overflow: hidden;
+        
+        
+        .gauge-fill{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            translate: 0 100%;
+            inset: 0;
+            background-color: #ffbf5e;
+            transform-origin: center top;
+            rotate: calc(180deg / 15 * $uv-index);
+        }
+
+        .gauge-cover{
+            position: absolute;
+            background-color: #2B2B2B;
+            margin-inline: auto;
+            border-top-left-radius: 100% 200%;
+            border-top-right-radius: 100% 200%;
+            inset: 20px 20px 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+    }
+}
+
+
+
+
+.wind-status,
+.sun-rise-set{
+    
+    .icon{
+        width: 30px;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        overflow: hidden;
+    }
+}
+
+
+.sun-rise-set{
+
+    .icon-comment{
+        display: flex;
+    }
+
+    .text{
+        display: flex;
+        flex-direction: column;
+
+        span:last-of-type{
+            color: $text-secondary;
+            font-size: 12px;
+            align-self: center;
+        }
+    }
+}
+
+
+.humidity{
+    display: flex;
+
+    .small-text{
+        align-self: flex-start;
+        margin-top: 5%;
+    }
+}

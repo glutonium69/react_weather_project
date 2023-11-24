@@ -1,0 +1,26 @@
+$body-padding-block: 1rem;
+
+$left-right--section-padding: clamp(1rem, -0.071rem + 2.857vw, 2.5rem); // 1rem 600px, 2.5rem 1440px
+
+$left-section-gap : 0.5rem;
+$search-icons-width : clamp(0.313rem, -1.116rem + 2.976vw, 1.563rem); // 5px 768px, 25px 1440px
+
+$temp-info-font-size-temp : clamp(3.75rem, 6.25rem - 5.208vw, 1.563rem);
+
+
+$right-section-gap : 2rem;
+
+
+// $left-side-color: white;
+// $right-side-color: #f6f6f8;
+// $card-color: white;
+
+$left-side-color: #2B2B2B;
+$right-side-color: #3b3b3b;
+$card-color: #2B2B2B;
+
+// $text-primary : rgb(31, 31, 31);
+// $text-secondary: #a8a6a6;
+
+$text-primary : #ebd9be;
+$text-secondary: #ffbf5e;
